@@ -4,9 +4,7 @@ OUTPUT_DIR = build
 MODULE := github.com/kubensage/agent
 VERSION ?= local
 
-.PHONY: build-proto \
-		vet clean tidy build build-linux-amd64 build-linux-arm64 \
-		fresh-scp
+.PHONY: build-proto clean tidy vet build-linux-amd64 build-linux-arm64 build build-target fresh-scp
 
 # Proto
 build-proto:
@@ -32,6 +30,13 @@ build-linux-arm64: tidy vet build-proto
 		-o $(OUTPUT_DIR)/agent-$(VERSION)-linux-arm64 cmd/agent/main.go
 
 build: clean build-linux-amd64 build-linux-arm64
+
+build-target: clean
+ifeq ($(PLATFORM_PAIR),linux-arm64)
+	$(MAKE) build-linux-arm64
+else
+	$(MAKE) build-linux-amd64
+endif
 
 # Utils
 fresh-scp: build-linux-amd64
