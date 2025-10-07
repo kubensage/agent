@@ -123,8 +123,8 @@ jobs:
           file: .github/Dockerfile
           push: true
           tags: |
-            ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ env.VERSION }}
-            ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ github.event.repository.name }}:latest
+            ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ github.event.repository.name }}-${{ env.PLATFORM_PAIR }}:${{ env.VERSION }}
+            ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ github.event.repository.name }}-${{ env.PLATFORM_PAIR }}:latest
           cache-from: type=gha,scope=${{ matrix.platform }}
           cache-to: type=gha,mode=max,scope=${{ matrix.platform }}
           provenance: false
