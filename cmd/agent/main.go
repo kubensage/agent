@@ -8,21 +8,21 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/kubensage/agent/proto/gen"
 	"github.com/kubensage/common/datastructure"
-	"github.com/kubensage/kubensage-agent/proto/gen"
 
+	"github.com/kubensage/agent/pkg/cli"
+	"github.com/kubensage/agent/pkg/discovery"
+	"github.com/kubensage/agent/pkg/metrics"
+	"github.com/kubensage/agent/pkg/utils"
 	"github.com/kubensage/common/cli"
 	"github.com/kubensage/common/log"
-	"github.com/kubensage/kubensage-agent/pkg/cli"
-	"github.com/kubensage/kubensage-agent/pkg/discovery"
-	"github.com/kubensage/kubensage-agent/pkg/metrics"
-	"github.com/kubensage/kubensage-agent/pkg/utils"
 	"go.uber.org/zap"
 )
 
-const appName = "kubensage-agent"
+const appName = "agent"
 
-// main is the entrypoint for the kubensage-agent.
+// main is the entrypoint for the agent.
 //
 // It initializes CLI flags, configures structured logging,
 // discovers the CRI socket, establishes gRPC connections to the CRI and relay server,

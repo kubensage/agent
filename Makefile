@@ -1,7 +1,7 @@
 -include config.mk
 
 OUTPUT_DIR = build
-MODULE := github.com/kubensage/kubensage-agent
+MODULE := github.com/kubensage/agent
 VERSION ?= local
 
 .PHONY: build-proto \
@@ -25,14 +25,14 @@ vet:
 
 build-linux-amd64: tidy vet build-proto
 	GOOS=linux GOARCH=amd64 go build -ldflags "-X '$(MODULE)/pkg/buildinfo.Version=$(VERSION)'" \
-		-o $(OUTPUT_DIR)/kubensage-agent-$(VERSION)-linux-amd64 cmd/kubensage-agent/main.go
+		-o $(OUTPUT_DIR)/agent-$(VERSION)-linux-amd64 cmd/agent/main.go
 
 build-linux-arm64: tidy vet build-proto
 	GOOS=linux GOARCH=arm64 go build -ldflags "-X '$(MODULE)/pkg/buildinfo.Version=$(VERSION)'" \
-		-o $(OUTPUT_DIR)/kubensage-agent-$(VERSION)-linux-arm64 cmd/kubensage-agent/main.go
+		-o $(OUTPUT_DIR)/agent-$(VERSION)-linux-arm64 cmd/agent/main.go
 
 build: clean build-linux-amd64 build-linux-arm64
 
 # Utils
 fresh-scp: build-linux-amd64
-	scp $(OUTPUT_DIR)/kubensage-agent-$(VERSION)-linux-amd64 $(REMOTE_USER)@$(REMOTE_HOST):$(REMOTE_PATH)
+	scp $(OUTPUT_DIR)/agent-$(VERSION)-linux-amd64 $(REMOTE_USER)@$(REMOTE_HOST):$(REMOTE_PATH)

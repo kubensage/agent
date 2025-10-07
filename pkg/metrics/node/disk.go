@@ -4,7 +4,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/kubensage/kubensage-agent/proto/gen"
+	"github.com/kubensage/agent/proto/gen"
 	"github.com/shirou/gopsutil/v3/disk"
 )
 
