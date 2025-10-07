@@ -128,7 +128,7 @@ jobs:
           cache-from: type=gha,scope=${{ matrix.platform }}
           cache-to: type=gha,mode=max,scope=${{ matrix.platform }}
           provenance: false
-          platforms: linux/amd64,linux/arm64
+          platforms: ${{ matrix.platform }}
 
   tag-and-release:
     runs-on: ubuntu-latest
