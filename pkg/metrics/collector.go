@@ -6,13 +6,13 @@ import (
 	"sync"
 	"time"
 
+	"github.com/kubensage/agent/pkg/cli"
+	"github.com/kubensage/agent/pkg/metrics/container"
+	"github.com/kubensage/agent/pkg/metrics/node"
+	"github.com/kubensage/agent/pkg/metrics/pod"
+	"github.com/kubensage/agent/proto/gen"
 	"github.com/kubensage/common/datastructure"
 	gogo "github.com/kubensage/common/go"
-	"github.com/kubensage/kubensage-agent/pkg/cli"
-	"github.com/kubensage/kubensage-agent/pkg/metrics/container"
-	"github.com/kubensage/kubensage-agent/pkg/metrics/node"
-	"github.com/kubensage/kubensage-agent/pkg/metrics/pod"
-	"github.com/kubensage/kubensage-agent/proto/gen"
 	"go.uber.org/zap"
 	cri "k8s.io/cri-api/pkg/apis/runtime/v1"
 )

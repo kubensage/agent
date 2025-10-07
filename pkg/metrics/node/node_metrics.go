@@ -5,8 +5,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/kubensage/agent/proto/gen"
 	"github.com/kubensage/common/go"
-	"github.com/kubensage/kubensage-agent/proto/gen"
 	"github.com/shirou/gopsutil/v3/cpu"
 	"github.com/shirou/gopsutil/v3/disk"
 	"github.com/shirou/gopsutil/v3/host"

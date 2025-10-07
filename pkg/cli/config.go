@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/kubensage/kubensage-agent/pkg/buildinfo"
+	"github.com/kubensage/agent/pkg/buildinfo"
 	"go.uber.org/zap"
 )
 

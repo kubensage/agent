@@ -5,9 +5,9 @@ import (
 	"errors"
 	"time"
 
+	"github.com/kubensage/agent/pkg/cli"
+	"github.com/kubensage/agent/proto/gen"
 	"github.com/kubensage/common/datastructure"
-	"github.com/kubensage/kubensage-agent/pkg/cli"
-	"github.com/kubensage/kubensage-agent/proto/gen"
 	"go.uber.org/zap"
 )
 

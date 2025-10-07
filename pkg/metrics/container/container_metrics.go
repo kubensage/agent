@@ -3,7 +3,7 @@ package container
 import (
 	"time"
 
-	"github.com/kubensage/kubensage-agent/proto/gen"
+	"github.com/kubensage/agent/proto/gen"
 	"go.uber.org/zap"
 	cri "k8s.io/cri-api/pkg/apis/runtime/v1"
 )
