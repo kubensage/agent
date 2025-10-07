@@ -128,11 +128,16 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      # Set a default version (placeholder)
+      # Extract VERSION from the PR branch name (remove 'release/v' prefix)
       - name: Compute VERSION from head branch
         run: |
           set -euo pipefail
-          VERSION="0.0.1"
+          BRANCH="${{ github.event.pull_request.head.ref }}"
+          VERSION="${BRANCH#release/v}"
+          if [[ -z "${VERSION}" || "${VERSION}" == "${BRANCH}" ]]; then
+            echo "Error: can't extract VERSION from '${BRANCH}' (expecting prefix 'release/v')." >&2
+            exit 1
+          fi
           echo "VERSION=${VERSION}" >> "$GITHUB_ENV"
           echo "Extracted VERSION=${VERSION}"
 
